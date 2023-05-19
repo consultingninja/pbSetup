@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting Ninja Pocketbase</title>
+  <!-- Additional CSS and JavaScript files can be linked here -->
+  <script src="/pocketbase.umd.js"></script>
+  <script>
+    const pb = new PocketBase('http://127.0.0.1:8090');
+
+    async function testPB(){
+      const authData = await pb.admins.authWithPassword('consultingninja.tech@gmail.com', 'PBTest123!@');
+      const element = document.getElementById('data');
+      element.innerHTML = pb.authStore.token.toString();
+    }
+
+testPB()
+
+
+  </script>
+  <style>
+    body{
+        margin:0;
+        background-color: #242424;
+        color:#FFFFFF;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+        a{
+        text-decoration: none;
+        color:#1034e8;
+        font-weight: 800;
+        font-size: 1.2em;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: #FFFFFF;
+        padding:.5em;
+    }
+    nav a{
+        color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Content of the web page goes here -->
+  
+  <header>
+    <!-- Header content -->
+  </header>
+  
+  <nav>
+    <a href="/app.html">home</a>
+    <!-- Navigation menu or links -->
+  </nav>
+  
+  <main>
+      <h1>Welcome to Consulting Ninja!</h1>
+    <p>Visit <a href="https://kit.svelte.dev"><strong>@ConsultingNinja</strong></a> to see more great videos!</p>
+    <p id="data"></p>
+    <!-- Main content of the page -->
+  </main>
+  
+  <footer>
+    <!-- Footer content -->
+  </footer>
+  
+  <!-- Additional scripts can be placed here -->
+</body>
+</html>
